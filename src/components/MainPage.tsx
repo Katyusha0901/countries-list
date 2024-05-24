@@ -42,6 +42,8 @@ export const MainPage: React.FC<Props> = ({
       itemHeight={141}
       itemKey="id"
       onVirtualScroll={onScroll}
-    ></List>
+    >
+      {(country) => <Post commentInformation={country} />}
+    </List>
   );
 };
