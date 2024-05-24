@@ -2,7 +2,6 @@ import React from "react";
 import { Country } from "../types";
 import List from "rc-virtual-list";
 
-
 interface Props {
   countries: Country[];
   visibleCountries: Country[];
@@ -27,7 +26,7 @@ export const MainPage: React.FC<Props> = ({
       visibleCountries.length + 50
     );
     const lengthOfRemainingList: number =
-    visibleCountries.length * 141 - virtualScroll.y - windowHeight;
+      visibleCountries.length * 141 - virtualScroll.y - windowHeight;
 
     if (lengthOfRemainingList < 1000) {
       if (!isChangedVisibleComments) {
@@ -36,5 +35,13 @@ export const MainPage: React.FC<Props> = ({
     }
   }
 
-  return <div></div>;
+  return (
+    <List
+      data={visibleCountries}
+      height={windowHeight}
+      itemHeight={141}
+      itemKey="id"
+      onVirtualScroll={onScroll}
+    ></List>
+  );
 };
