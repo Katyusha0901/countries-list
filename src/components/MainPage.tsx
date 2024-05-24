@@ -1,6 +1,7 @@
 import React from "react";
 import { Country } from "../types";
 import List from "rc-virtual-list";
+import { Post } from "./Post";
 
 interface Props {
   countries: Country[];
@@ -43,7 +44,7 @@ export const MainPage: React.FC<Props> = ({
       itemKey="id"
       onVirtualScroll={onScroll}
     >
-      {(country) => <Post commentInformation={country} />}
+      {(country) => <Post countryInformation={country} />}
     </List>
   );
 };
