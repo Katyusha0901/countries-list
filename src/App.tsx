@@ -10,7 +10,7 @@ export function App() {
   const [visibleCounties, setVisibleCountries] = useState<Country[]>([]);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("./data/all.json")
       .then((response) => response.json())
       .then((data) => {
         setAllCountries(data);
