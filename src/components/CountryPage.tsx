@@ -7,15 +7,18 @@ interface Props {
 }
 
 export const CountryPage: React.FC<Props> = ({ countries }) => {
-  const { countryId } = useParams<string>();
-  const id: number = Number(countryId);
-  console.log(countryId);
+  const { countryInformation } = useParams<string>();
+  console.log(countries)
+  const country = countries.find(
+    (country) => country.name.common === countryInformation
+  )
+  console.log(countryInformation);
   return (
     <div className="comment-page">
-      <div className="comment-page__title">{countries[id - 1].name.common}</div>
-      <div className="comment-page__text">{countries[id - 1].capital}</div>
+      <div className="comment-page__title">{countryInformation}</div>
+      <div className="comment-page__text">{country?.capital}</div>
       <div>
-        <img src={countries[id - 1].flags.png} />
+        <img src={country?.flags.png} />
       </div>
       {/* <ButtonBack /> */}
     </div>

@@ -8,7 +8,10 @@ interface Props {
 
 export const ButtonToRead: React.FC<Props> = ({ countryInformation }) => {
   return (
-    <Link to={`${RoutesObject.countryPage}${countryInformation.name.common}`}>
+    // <Link to={`${RoutesObject.countryPage}`}>
+    <Link
+      to={`/countries-list-test/country/${countryInformation.name.common}`}
+    >
       <div className="button-to-read">Просмотр</div>
     </Link>
   );

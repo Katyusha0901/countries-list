@@ -11,7 +11,7 @@ export function App() {
   const [visibleCountries, setVisibleCountries] = useState<Country[]>([]);
 
   useEffect(() => {
-    fetch("./data/all.json")
+    fetch("https://restcountries.com/v3.1/all")
       .then((response) => response.json())
       .then((data) => {
         setAllCountries(data);
@@ -19,7 +19,6 @@ export function App() {
       })
       .catch((err) => console.log("Ошибка", err));
   }, []);
-
   return (
     <>
       <Routes>
