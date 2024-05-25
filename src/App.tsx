@@ -4,10 +4,11 @@ import { RoutesObject } from "./RoutesObject";
 import { MainPage } from "./components/MainPage";
 import { useEffect, useState } from "react";
 import { Country } from "./types";
+import { CountryPage } from "./components/CountryPage";
 
 export function App() {
-  const [allCounties, setAllCountries] = useState<Country[]>([]);
-  const [visibleCounties, setVisibleCountries] = useState<Country[]>([]);
+  const [allCountries, setAllCountries] = useState<Country[]>([]);
+  const [visibleCountries, setVisibleCountries] = useState<Country[]>([]);
 
   useEffect(() => {
     fetch("./data/all.json")
@@ -26,11 +27,15 @@ export function App() {
           path={RoutesObject.mainPage}
           element={
             <MainPage
-              countries={allCounties}
-              visibleCountries={visibleCounties}
+              countries={allCountries}
+              visibleCountries={visibleCountries}
               setVisibleCountries={setVisibleCountries}
             />
           }
+        ></Route>
+        <Route
+          path={RoutesObject.countryPage}
+          element={<CountryPage countries={allCountries} />}
         ></Route>
       </Routes>
     </>
