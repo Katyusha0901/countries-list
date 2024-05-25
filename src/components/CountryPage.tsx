@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-// import { ButtonBack } from "./features/Button-back";
+import { ButtonBack } from "./ButtonBack";
 import { Country } from "../types";
 
 interface Props {
@@ -8,10 +8,10 @@ interface Props {
 
 export const CountryPage: React.FC<Props> = ({ countries }) => {
   const { countryInformation } = useParams<string>();
-  console.log(countries)
+  console.log(countries);
   const country = countries.find(
     (country) => country.name.common === countryInformation
-  )
+  );
   console.log(countryInformation);
   return (
     <div className="comment-page">
@@ -20,7 +20,7 @@ export const CountryPage: React.FC<Props> = ({ countries }) => {
       <div>
         <img src={country?.flags.png} />
       </div>
-      {/* <ButtonBack /> */}
+      <ButtonBack />
     </div>
   );
 };
