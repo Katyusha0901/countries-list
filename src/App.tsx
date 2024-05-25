@@ -4,6 +4,7 @@ import { MainPage } from "./components/MainPage";
 import { useEffect, useState } from "react";
 import { Country } from "./types";
 import { CountryPage } from "./components/CountryPage";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export function App() {
   const [allCountries, setAllCountries] = useState<Country[]>([]);
