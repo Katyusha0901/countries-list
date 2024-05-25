@@ -18,8 +18,6 @@ export const MainPage: React.FC<Props> = ({
 }) => {
   function onScroll(virtualScroll: { x: number; y: number }) {
     if (visibleCountries.length === countries.length) {
-      console.log(visibleCountries);
-
       return;
     }
 
@@ -34,7 +32,6 @@ export const MainPage: React.FC<Props> = ({
     if (lengthOfRemainingList < 1000) {
       setVisibleCountries([...visibleCountries, ...additionalCountries]);
     }
-    console.log(visibleCountries[visibleCountries.length - 1]);
   }
 
   return (

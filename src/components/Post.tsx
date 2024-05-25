@@ -1,5 +1,5 @@
 import { Country } from "../types";
-// import { ButtonToRead } from "../features/Button-to-read";
+import { ButtonToRead } from "./ButtonToRead";
 import { forwardRef } from "react";
 
 interface Props {
@@ -12,7 +12,7 @@ export const Post = forwardRef<HTMLDivElement, Props>(
       <div style={{ border: "1px solid " }} className="post" ref={ref}>
         <div className="post__content">
           <div className="post__title">{countryInformation.name.common}</div>
-          {/* <ButtonToRead commentInformation={commentInformation} /> */}
+          <ButtonToRead countryInformation={countryInformation} />
         </div>
       </div>
     );

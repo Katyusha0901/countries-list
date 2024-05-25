@@ -5,5 +5,6 @@ interface RoutesType {
 
 export const RoutesObject: RoutesType = {
   mainPage: "/countries-list",
-  countryPage: "/countries-list-test/country/:countryId",
+  countryPage:
+    "/countries-list-test/country/",
 };

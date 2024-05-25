@@ -9,7 +9,7 @@ interface Props {
 export const CountryPage: React.FC<Props> = ({ countries }) => {
   const { countryId } = useParams<string>();
   const id: number = Number(countryId);
-
+  console.log(countryId);
   return (
     <div className="comment-page">
       <div className="comment-page__title">{countries[id - 1].name.common}</div>
