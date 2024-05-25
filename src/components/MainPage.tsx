@@ -40,12 +40,12 @@ export const MainPage: React.FC<Props> = ({
         data={visibleCountries}
         height={windowHeight}
         itemHeight={55.2}
-        itemKey="country.name.common"
+        itemKey={(item) => item.name.common}
         onVirtualScroll={onScroll}
       >
         {(country) => (
           <ListGroup.Item>
-            <Post key={country.name.common} countryInformation={country} />
+            <Post countryInformation={country} />
           </ListGroup.Item>
         )}
       </List>

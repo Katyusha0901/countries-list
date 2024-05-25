@@ -34,7 +34,7 @@ export function App() {
           }
         ></Route>
         <Route
-          path={routes.country}
+          path={routes.country()}
           element={<CountryPage countries={allCountries} />}
         ></Route>
         <Route
