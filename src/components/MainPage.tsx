@@ -2,7 +2,7 @@ import React from "react";
 import { Country } from "../types";
 import List from "rc-virtual-list";
 import { Post } from "./Post";
-
+import ListGroup from "react-bootstrap/ListGroup";
 interface Props {
   countries: Country[];
   visibleCountries: Country[];
@@ -27,7 +27,7 @@ export const MainPage: React.FC<Props> = ({
     );
 
     const lengthOfRemainingList: number =
-      visibleCountries.length * 18.4 - virtualScroll.y - windowHeight;
+      visibleCountries.length * 55.2 - virtualScroll.y - windowHeight;
 
     if (lengthOfRemainingList < 1000) {
       setVisibleCountries([...visibleCountries, ...additionalCountries]);
@@ -35,16 +35,20 @@ export const MainPage: React.FC<Props> = ({
   }
 
   return (
-    <List
-      data={visibleCountries}
-      height={windowHeight}
-      itemHeight={18.4}
-      itemKey="country.name.common"
-      onVirtualScroll={onScroll}
-    >
-      {(country) => (
-        <Post key={country.name.common} countryInformation={country} />
-      )}
-    </List>
+    <ListGroup>
+      <List
+        data={visibleCountries}
+        height={windowHeight}
+        itemHeight={55.2}
+        itemKey="country.name.common"
+        onVirtualScroll={onScroll}
+      >
+        {(country) => (
+          <ListGroup.Item>
+            <Post key={country.name.common} countryInformation={country} />
+          </ListGroup.Item>
+        )}
+      </List>
+    </ListGroup>
   );
 };
