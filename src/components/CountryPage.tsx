@@ -3,6 +3,7 @@ import { ButtonBack } from "./ButtonBack";
 import { Country } from "../types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "../styles/Styles.css";
 interface Props {
   countries: Country[];
 }
