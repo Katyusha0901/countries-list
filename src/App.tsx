@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { RoutesObject } from "./RoutesObject";
+import { routes } from "./routes";
 import { MainPage } from "./components/MainPage";
 import { useEffect, useState } from "react";
 import { Country } from "./types";
 import { CountryPage } from "./components/CountryPage";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Navigate } from "react-router-dom";
 
 export function App() {
   const [allCountries, setAllCountries] = useState<Country[]>([]);
@@ -23,7 +24,7 @@ export function App() {
     <>
       <Routes>
         <Route
-          path={RoutesObject.mainPage}
+          path={routes.home}
           element={
             <MainPage
               countries={allCountries}
@@ -33,8 +34,12 @@ export function App() {
           }
         ></Route>
         <Route
-          path={RoutesObject.countryPage}
+          path={routes.country}
           element={<CountryPage countries={allCountries} />}
+        ></Route>
+        <Route
+          path={"*"}
+          element={<Navigate to={routes.home} replace />}
         ></Route>
       </Routes>
     </>

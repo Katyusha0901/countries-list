@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { RoutesObject } from "../RoutesObject";
+import { routes } from "../routes";
 import Button from "react-bootstrap/Button";
 
 export function ButtonBack() {
   return (
-    <Link to={RoutesObject.mainPage}>
+    <Link to={routes.home}>
       <Button variant="outline-primary">Назад</Button>
     </Link>
   );

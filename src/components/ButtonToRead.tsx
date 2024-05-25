@@ -7,7 +7,7 @@ interface Props {
 
 export const ButtonToRead: React.FC<Props> = ({ countryInformation }) => {
   return (
-    <Link to={`/countries-list-test/country/${countryInformation.name.common}`}>
+    <Link to={`/country/${countryInformation.name.common}`}>
       <Button variant="outline-primary">Просмотр</Button>
     </Link>
   );

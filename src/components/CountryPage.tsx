@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ButtonBack } from "./ButtonBack";
 import { Country } from "../types";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "../styles/Styles.css";
 interface Props {
@@ -10,7 +9,6 @@ interface Props {
 
 export const CountryPage: React.FC<Props> = ({ countries }) => {
   const { countryName } = useParams<string>();
-  console.log(countries);
   const country = countries.find(
     (country) => country.name.common === countryName
   );
