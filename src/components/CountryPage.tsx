@@ -25,14 +25,5 @@ export const CountryPage: React.FC<Props> = ({ countries }) => {
         </Card.Body>
       </Card>
     </div>
-
-    // <div className="comment-page">
-    //   <div className="comment-page__title">{countryName}</div>
-    //   <div className="comment-page__text">{country?.capital}</div>
-    //   <div>
-    //     <img src={country?.flags.png} />
-    //   </div>
-    //   <ButtonBack />
-    // </div>
   );
 };
