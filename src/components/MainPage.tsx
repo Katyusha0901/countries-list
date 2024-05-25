@@ -9,8 +9,7 @@ interface Props {
   setVisibleCountries: (value: React.SetStateAction<Country[]>) => void;
 }
 
-const windowHeight: number = window.innerHeight - 25;
-let isChangedVisibleComments: boolean = false;
+const windowHeight: number = window.innerHeight - 15;
 
 export const MainPage: React.FC<Props> = ({
   countries,
@@ -19,32 +18,36 @@ export const MainPage: React.FC<Props> = ({
 }) => {
   function onScroll(virtualScroll: { x: number; y: number }) {
     if (visibleCountries.length === countries.length) {
+      console.log(visibleCountries);
+
       return;
     }
 
-    const additionalComments = countries.slice(
+    const additionalCountries = countries.slice(
       visibleCountries.length,
       visibleCountries.length + 50
     );
+
     const lengthOfRemainingList: number =
-      visibleCountries.length * 141 - virtualScroll.y - windowHeight;
+      visibleCountries.length * 18.4 - virtualScroll.y - windowHeight;
 
     if (lengthOfRemainingList < 1000) {
-      if (!isChangedVisibleComments) {
-        setVisibleCountries([...visibleCountries, ...additionalComments]);
-      }
+      setVisibleCountries([...visibleCountries, ...additionalCountries]);
     }
+    console.log(visibleCountries[visibleCountries.length - 1]);
   }
 
   return (
     <List
       data={visibleCountries}
       height={windowHeight}
-      itemHeight={141}
-      itemKey="id"
+      itemHeight={18.4}
+      itemKey="country.name.common"
       onVirtualScroll={onScroll}
     >
-      {(country) => <Post countryInformation={country} />}
+      {(country) => (
+        <Post key={country.name.common} countryInformation={country} />
+      )}
     </List>
   );
 };

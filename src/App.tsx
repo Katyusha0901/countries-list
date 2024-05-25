@@ -14,7 +14,7 @@ export function App() {
       .then((response) => response.json())
       .then((data) => {
         setAllCountries(data);
-        setVisibleCountries(data.slice(0, 100));
+        setVisibleCountries(data.slice(0, 150));
       })
       .catch((err) => console.log("Ошибка", err));
   }, []);
